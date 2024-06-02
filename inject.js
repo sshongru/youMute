@@ -117,6 +117,7 @@ YouMute.prototype.checkForAd = function (event) {
 
 YouMute.prototype.adInProgress = function () {
   this.getVideoElement().muted = true;
+  this.getVideoElement().playbackRate = 10;
 
   // show the time remaining before the ad can be skipped
   var player = document.getElementsByClassName("html5-video-player")[0];
@@ -142,6 +143,7 @@ YouMute.prototype.adInProgress = function () {
 
 YouMute.prototype.adEnded = function () {
   this.getVideoElement().muted = false;
+  this.getVideoElement().playbackRate = 1.0;
 
   this.htmlClassList.remove(this.adInProgressClassName);
 };
